@@ -13,11 +13,14 @@ Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/sphinx-json-schema-spec/
 Source0:	https://files.pythonhosted.org/packages/source/s/sphinx-json-schema-spec/sphinx_json_schema_spec-%{version}.tar.gz
 # Source0-md5:	b6202a9e464b2f1258927792c81d4abc
-Source1:	https://json-schema.org/draft/2020-12/json-schema-core.html
+# https://json-schema.org/draft/2020-12/json-schema-core.html downloaded on 20250719
+Source1:	json-schema-core.html
 # Source1-md5:	c05a695bb4a7b9db39e0692e1e36af41
-Source2:	https://json-schema.org/draft/2020-12/json-schema-validation.html
+# https://json-schema.org/draft/2020-12/json-schema-validation.html downloaded on 20250719
+Source2:	json-schema-validation.html
 # Source2-md5:	3a5ec7f1a6bc956fb2d2a04956bd07f2
-Source3:	https://json-schema.org/learn/glossary.html
+# https://json-schema.org/learn/glossary.html downloaded on 20250719
+Source3:	glossary.html
 # Source3-md5:	1ea137b5836ab9f60ed0f62578d4f754
 Patch0:		sphinx_json_schema_spec-offline.patch
 URL:		https://pypi.org/project/sphinx-json-schema-spec/

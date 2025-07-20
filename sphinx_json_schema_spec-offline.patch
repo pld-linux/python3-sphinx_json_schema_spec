@@ -1,0 +1,23 @@
+--- sphinx_json_schema_spec-2025.1.1/sphinx_json_schema_spec/__init__.py.orig	2020-02-02 01:00:00.000000000 +0100
++++ sphinx_json_schema_spec-2025.1.1/sphinx_json_schema_spec/__init__.py	2025-07-20 09:51:16.804296810 +0200
+@@ -80,7 +80,10 @@ def fetch_or_load(cache_path, url):
+ 
+     request = urllib.request.Request(url, headers=headers)
+     context = ssl.create_default_context()
+-    response = urllib.request.urlopen(request, context=context)
++    try:
++        response = urllib.request.urlopen(request, context=context)
++    except:
++        return html.parse(cache_path).getroot()
+ 
+     if response.code == 200:  # noqa: PLR2004
+         with cache_path.open("w+b") as out:
+@@ -88,7 +91,7 @@ def fetch_or_load(cache_path, url):
+             out.seek(0)
+             return html.parse(out).getroot()
+ 
+-    return html.parse(cache_path.read_bytes()).getroot()
++    return html.parse(cache_path).getroot()
+ 
+ 
+ def docutils_does_not_allow_using_classes(vocabularies):
